@@ -39,6 +39,16 @@ AND MI.ARRIVAL_DATE =   '2016-12-01'    -- 入荷日
 
 ```
 
+Install
+-------
+
+From the Eclipse menu, choose Help -> Install new software and enter the URL below.
+
+https://future-architect.github.io/eclipse-uroborosql-formatter/
+
+After that, select "Eclipse uroboroSQL Formatter" and install it.
+
+
 Features
 --------
 
