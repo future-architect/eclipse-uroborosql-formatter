@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/jp.co.future.eclipse.usqlfmt.feature_0.1.0.jar" id="jp.co.future.eclipse.usqlfmt.feature" version="0.1.0">
+      <category name="jp.co.future.eclipse.usqlfmt"/>
+   </feature>
+   <category-def name="jp.co.future.eclipse.usqlfmt" label="Eclipse uroboroSQL Formatter">
+      <description>
+         Beautiful SQL Formatter for Eclipse
+      </description>
+   </category-def>
+</site>

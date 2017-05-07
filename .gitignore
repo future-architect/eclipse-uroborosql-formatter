@@ -1,5 +1,8 @@
 *.class
 
+/jp.co.future.eclipse.usqlfmt/bin
+**/.settings/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

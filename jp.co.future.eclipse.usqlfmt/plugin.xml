@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.ui.commands">
+    <command categoryId="org.eclipse.jdt.ui.category.source" id="jp.co.future.eclipse.usqlfmt.commands.formatCommand" name="Format SQL" />
+  </extension>
+  <extension point="org.eclipse.ui.handlers">
+    <handler class="jp.co.future.eclipse.usqlfmt.handlers.FormatHandler" commandId="jp.co.future.eclipse.usqlfmt.commands.formatCommand" />
+  </extension>
+  <extension point="org.eclipse.ui.bindings">
+    <key commandId="jp.co.future.eclipse.usqlfmt.commands.formatCommand" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M1+M2+L" />
+  </extension>
+  <extension point="org.eclipse.ui.menus">
+    <menuContribution locationURI="menu:edit?after=additions">
+      <command commandId="jp.co.future.eclipse.usqlfmt.commands.formatCommand" id="jp.co.future.eclipse.usqlfmt.menus.formatCommand" label="Format SQL" mnemonic="S" />
+    </menuContribution>
+    <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+      <command commandId="jp.co.future.eclipse.usqlfmt.commands.formatCommand" id="jp.co.future.eclipse.usqlfmt.menus.formatCommand" label="Format SQL" mnemonic="S">
+        <visibleWhen>
+          <with variable="activeEditorInput">
+            <adapt type="org.eclipse.core.resources.IFile">
+              <test property="org.eclipse.core.resources.extension" value="sql" />
+            </adapt>
+          </with>
+        </visibleWhen>
+      </command>
+    </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.core.runtime.preferences">
+     <initializer
+           class="jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer">
+     </initializer>
+  </extension>
+  <extension
+        point="org.eclipse.ui.preferencePages">
+     <page
+           class="jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferencePage"
+           id="jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferencePage"
+           name="uroboroSQL Formatter">
+     </page>
+  </extension>
+</plugin>
