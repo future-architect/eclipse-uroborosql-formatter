@@ -2,7 +2,7 @@
 <feature
       id="jp.co.future.eclipse.usqlfmt.feature"
       label="Eclipse uroboroSQL Formatter"
-      version="0.1.0"
+      version="0.1.1"
       provider-name="Future Architect, Inc.">
 
    <description url="https://github.com/future-architect/eclipse-uroborosql-formatter">

@@ -35,8 +35,8 @@ public class FormatHandler extends AbstractHandler {
 	 */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		ITextEditor editor = (ITextEditor) window.getActivePage().getActiveEditor();
+		final IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+		final ITextEditor editor = (ITextEditor) window.getActivePage().getActiveEditor();
 		if (editor == null) {
 			return null;
 		}
@@ -58,7 +58,7 @@ public class FormatHandler extends AbstractHandler {
 		// format async
 		Thread thread = new Thread("uroboroSQL Format Thread") {
 			public void run() {
-				PyEngine engine = UroborosqlFormatterPlugin.getDefault().getPyEngine();
+				final PyEngine engine = UroborosqlFormatterPlugin.getDefault().getPyEngine();
 				engine.put("sql", sql);
 
 				// bind python config
