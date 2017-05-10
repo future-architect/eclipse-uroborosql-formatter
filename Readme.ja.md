@@ -43,11 +43,20 @@ AND MI.ARRIVAL_DATE =   '2016-12-01'    -- 入荷日
 
 Install
 -------
+
+### Update site
+
 Eclipseのメニューより、ヘルプ -> 新規ソフトウェアのインストールを選択し、下記URLを入力してください。
 
 https://future-architect.github.io/eclipse-uroborosql-formatter/
 
 その後、「Eclipse uroboroSQL Formatter」を選択してインストールしてください。
+
+### Eclipse Marketplace
+
+下記ボタンを実行中のEclipseワークスペースにドラッグしてください。
+
+[![Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client](https://marketplace.eclipse.org/sites/all/themes/solstice/public/images/marketplace/btn-install.png)](http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=3434118 "Drag to your running Eclipse* workspace. *Requires Eclipse Marketplace Client")
 
 
 Features
