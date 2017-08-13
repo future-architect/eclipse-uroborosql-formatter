@@ -15,23 +15,31 @@ class Test(unittest.TestCase):
     def test_uppercase_config(self):
         self.assertEqual(format_sql("""
         select * from DUAL
-        """, LocalConfig().set_uppercase(False)),
+        """, LocalConfig().set_case('lower')),
 """select
 \t*
 from
-\tDUAL"""
+\tdual"""
         )
 
 
         self.assertEqual(format_sql("""
         select * from DUAL
-        """, LocalConfig()),
+        """, LocalConfig().set_case('upper')),
 """SELECT
 \t*
 FROM
 \tDUAL"""
         )
 
+        self.assertEqual(format_sql("""
+        select * from DUAL
+        """, LocalConfig().set_case('capitalize')),
+"""Select
+\t*
+From
+\tDual"""
+        )
 
 def format_sql(text, config):
     return uroborosqlfmt.format_sql(text, config)

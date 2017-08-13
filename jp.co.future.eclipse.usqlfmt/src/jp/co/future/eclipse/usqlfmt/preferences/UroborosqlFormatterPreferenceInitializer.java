@@ -1,9 +1,9 @@
 package jp.co.future.eclipse.usqlfmt.preferences;
 
+import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
+
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
-
-import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 
 /**
  * initalize preferences.
@@ -21,8 +21,18 @@ public class UroborosqlFormatterPreferenceInitializer extends AbstractPreference
 		Doma2
 	}
 
-	/** Convert reserved words and identifiers to upper case */
-	public static final String USE_UPPERCASE = "useUppercase";
+	public enum CaseType {
+		lower,
+		upper,
+		capitalize
+	}
+
+	/** Convert words to a specific case*/
+	public static final String CASE = "case";
+	/** Convert words to a specific case*/
+	public static final String RESERVED_CASE = "reservedCase";
+	/** Convert words to a specific case*/
+	public static final String INPUT_RESERVED_WORDS = "inputReservedCase";
 	/** Using backslash escape sequences */
 	public static final String USE_BACKSLASH = "useBackslash";
 	/** Comment syntax type */
@@ -35,7 +45,9 @@ public class UroborosqlFormatterPreferenceInitializer extends AbstractPreference
 	@Override
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = UroborosqlFormatterPlugin.getDefault().getPreferenceStore();
-		store.setDefault(USE_UPPERCASE, true);
+		store.setDefault(CASE, CaseType.upper.name());
+		store.setDefault(RESERVED_CASE, CaseType.upper.name());
+		store.setDefault(INPUT_RESERVED_WORDS, "");
 		store.setDefault(USE_BACKSLASH, false);
 		store.setDefault(COMMENT_SYNTAX_TYPE, CommentSyntaxType.Uroborosql.name());
 	}

@@ -58,7 +58,7 @@ SELECT NO, NAME FROM (
         """), u"SELECT\n\tNO\n,\tNAME\nFROM\n\t(\n\t\tSELECT\n\t\t\tNO\n\t\t,\tNAME\n\t\t,\tROW_NUMBER() OVER(\n\t\t\t\tORDER BY\n\t\t\t\t\tNO\n\t\t\t)\t\tRNUM\n\t\tFROM\n\t\t\tROWNUM_TEST\n\t)\nWHERE\n\tRNUM\tBETWEEN\t5\tAND\t10") # pylint: disable=line-too-long
 
 def format_sql(text):
-    formated = uroborosqlfmt.format_sql(text, LocalConfig())
+    formated = uroborosqlfmt.format_sql(text, LocalConfig().set_case('upper'))
 
     return formated
 

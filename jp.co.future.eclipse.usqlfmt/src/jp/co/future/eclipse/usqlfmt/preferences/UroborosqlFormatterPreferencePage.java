@@ -1,13 +1,15 @@
 package jp.co.future.eclipse.usqlfmt.preferences;
 
+import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
+import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CaseType;
+import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CommentSyntaxType;
+
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.RadioGroupFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
-
-import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
-import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CommentSyntaxType;
 
 /**
  * uroboroSQL formatter plugin preferences page.
@@ -27,9 +29,24 @@ public class UroborosqlFormatterPreferencePage extends FieldEditorPreferencePage
 	 *
 	 * @see org.eclipse.jface.preference.FieldEditorPreferencePage#createFieldEditors()
 	 */
+	@Override
 	public void createFieldEditors() {
-		addField(new BooleanFieldEditor(UroborosqlFormatterPreferenceInitializer.USE_UPPERCASE,
-				"&Convert reserved words and identifiers to upper case", getFieldEditorParent()));
+		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.CASE,
+				"Specify case", 1,
+				new String[][] {
+						new String[] { CaseType.upper.name(), CaseType.upper.name() },
+						new String[] { CaseType.lower.name(), CaseType.lower.name() },
+						new String[] { CaseType.capitalize.name(), CaseType.capitalize.name() }
+				}, getFieldEditorParent()));
+		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE,
+				"Specify reserved words case", 1,
+				new String[][] {
+						new String[] { CaseType.upper.name(), CaseType.upper.name() },
+						new String[] { CaseType.lower.name(), CaseType.lower.name() },
+						new String[] { CaseType.capitalize.name(), CaseType.capitalize.name() }
+				}, getFieldEditorParent()));
+		addField(new StringFieldEditor(UroborosqlFormatterPreferenceInitializer.INPUT_RESERVED_WORDS,
+				"Input reserved words list(comma separated list)", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(UroborosqlFormatterPreferenceInitializer.USE_BACKSLASH,
 				"&Using backslash escape sequences", getFieldEditorParent()));
 		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.COMMENT_SYNTAX_TYPE,
@@ -45,6 +62,7 @@ public class UroborosqlFormatterPreferencePage extends FieldEditorPreferencePage
 	 *
 	 * @see org.eclipse.ui.IWorkbenchPreferencePage#init(org.eclipse.ui.IWorkbench)
 	 */
+	@Override
 	public void init(IWorkbench workbench) {
 	}
 
