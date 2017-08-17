@@ -32,7 +32,7 @@ public class UroborosqlFormatterPreferenceInitializer extends AbstractPreference
 	/** Convert words to a specific case*/
 	public static final String RESERVED_CASE = "reservedCase";
 	/** Convert words to a specific case*/
-	public static final String INPUT_RESERVED_WORDS = "inputReservedCase";
+	public static final String INPUT_RESERVED_WORDS = "inputReservedWord";
 	/** Using backslash escape sequences */
 	public static final String USE_BACKSLASH = "useBackslash";
 	/** Comment syntax type */
