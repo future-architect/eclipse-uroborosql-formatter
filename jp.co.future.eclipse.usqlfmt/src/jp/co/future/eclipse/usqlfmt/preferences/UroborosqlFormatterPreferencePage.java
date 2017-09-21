@@ -45,8 +45,8 @@ public class UroborosqlFormatterPreferencePage extends FieldEditorPreferencePage
 						new String[] { CaseType.lower.name(), CaseType.lower.name() },
 						new String[] { CaseType.capitalize.name(), CaseType.capitalize.name() }
 				}, getFieldEditorParent()));
-		addField(new StringFieldEditor(UroborosqlFormatterPreferenceInitializer.INPUT_RESERVED_WORDS,
-				"Input reserved words list(comma separated list)", getFieldEditorParent()));
+		addField(new StringFieldEditor(UroborosqlFormatterPreferenceInitializer.RESERVED_WORDS,
+				"Input reserved words list(comma separated)", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(UroborosqlFormatterPreferenceInitializer.USE_BACKSLASH,
 				"&Using backslash escape sequences", getFieldEditorParent()));
 		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.COMMENT_SYNTAX_TYPE,

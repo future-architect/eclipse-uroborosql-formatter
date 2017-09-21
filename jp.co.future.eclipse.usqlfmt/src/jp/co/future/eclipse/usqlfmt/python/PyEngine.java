@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Properties;
 
 import javax.script.ScriptEngine;
@@ -22,6 +23,7 @@ import org.python.util.PythonInterpreter;
 
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterException;
+
 
 /**
  * Adapt to python engine.
@@ -62,6 +64,10 @@ public class PyEngine implements AutoCloseable {
 	}
 
 	public void put(String key, String value) {
+		engine.put(key, value);
+	}
+
+	public <T> void put(String key, List<T> value) {
 		engine.put(key, value);
 	}
 

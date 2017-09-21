@@ -1,5 +1,8 @@
 package jp.co.future.eclipse.usqlfmt.python;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer;
 import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CaseType;
@@ -23,35 +26,38 @@ public class PyConfigBinder {
 		IPreferenceStore store = UroborosqlFormatterPlugin.getDefault().getPreferenceStore();
 
 		engine.eval("config = LocalConfig()");
-		if (CaseType.lower.name()
-				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
-			engine.eval("config.set_case(lower)");
-		} else if (CaseType.upper.name()
-				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
-			engine.eval("config.set_case(upper)");
-		} else if (CaseType.capitalize.name()
-				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
-			engine.eval("config.set_case(capitalize)");
+		if (CaseType.lower.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+			engine.eval("config.set_case('lower')");
+		} else if (CaseType.upper.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+			engine.eval("config.set_case('upper')");
+		} else if (CaseType.capitalize.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+			engine.eval("config.set_case('capitalize')");
 		}
-		if (CaseType.lower.name()
-				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
-			engine.eval("config.set_reserved_case(lower)");
+		if (CaseType.lower.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
+			engine.eval("config.set_reserved_case('lower')");
 		} else if (CaseType.upper.name()
 				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
-			engine.eval("config.set_reserved_case(upper)");
+			engine.eval("config.set_reserved_case('upper')");
 		} else if (CaseType.capitalize.name()
 				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
-			engine.eval("config.set_reserved_case(capitalize)");
+			engine.eval("config.set_reserved_case('capitalize')");
 		}
-		if (store.getString(UroborosqlFormatterPreferenceInitializer.INPUT_RESERVED_WORDS) != null) {
-			engine.eval(store.getString(UroborosqlFormatterPreferenceInitializer.INPUT_RESERVED_WORDS));
+		if (store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_WORDS) != null) {
+			String inputReservedWords = store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_WORDS);
+			String[] reservedWords = inputReservedWords.split(",", 0);
+			List<String> reservedWordsList = new ArrayList<String>();
+			for (int i = 0; i < reservedWords.length; i++) {
+				reservedWordsList.add(reservedWords[i]);
+			}
+			engine.put("input_reserved_words", reservedWordsList);
+			engine.eval("config.set_input_reserved_words(input_reserved_words)");
 		}
-		if (CommentSyntaxType.Doma2.name()
-				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.COMMENT_SYNTAX_TYPE))) {
+		if (CommentSyntaxType.Doma2.name().equals(store.getString("commentSyntaxType"))) {
 			engine.eval("config.set_commentsyntax(Doma2CommentSyntax())");
 		}
-		if (store.getBoolean(UroborosqlFormatterPreferenceInitializer.USE_BACKSLASH)) {
+		if (store.getBoolean("useBackslash")) {
 			engine.eval("uroborosqlfmt.config.glb.escape_sequence_u005c = True");
 		}
 	}
+
 }
