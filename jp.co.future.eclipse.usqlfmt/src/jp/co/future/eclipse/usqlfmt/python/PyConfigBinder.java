@@ -26,19 +26,19 @@ public class PyConfigBinder {
 		IPreferenceStore store = UroborosqlFormatterPlugin.getDefault().getPreferenceStore();
 
 		engine.eval("config = LocalConfig()");
-		if (CaseType.lower.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+		if (CaseType.LOWER.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
 			engine.eval("config.set_case('lower')");
-		} else if (CaseType.upper.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+		} else if (CaseType.UPPER.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
 			engine.eval("config.set_case('upper')");
-		} else if (CaseType.capitalize.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
+		} else if (CaseType.CAPITALIZE.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.CASE))) {
 			engine.eval("config.set_case('capitalize')");
 		}
-		if (CaseType.lower.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
+		if (CaseType.LOWER.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
 			engine.eval("config.set_reserved_case('lower')");
-		} else if (CaseType.upper.name()
+		} else if (CaseType.UPPER.name()
 				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
 			engine.eval("config.set_reserved_case('upper')");
-		} else if (CaseType.capitalize.name()
+		} else if (CaseType.CAPITALIZE.name()
 				.equals(store.getString(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE))) {
 			engine.eval("config.set_reserved_case('capitalize')");
 		}
@@ -52,10 +52,10 @@ public class PyConfigBinder {
 			engine.put("input_reserved_words", reservedWordsList);
 			engine.eval("config.set_input_reserved_words(input_reserved_words)");
 		}
-		if (CommentSyntaxType.Doma2.name().equals(store.getString("commentSyntaxType"))) {
+		if (CommentSyntaxType.Doma2.name().equals(store.getString(UroborosqlFormatterPreferenceInitializer.COMMENT_SYNTAX_TYPE))) {
 			engine.eval("config.set_commentsyntax(Doma2CommentSyntax())");
 		}
-		if (store.getBoolean("useBackslash")) {
+		if (store.getBoolean(UroborosqlFormatterPreferenceInitializer.USE_BACKSLASH)) {
 			engine.eval("uroborosqlfmt.config.glb.escape_sequence_u005c = True");
 		}
 	}

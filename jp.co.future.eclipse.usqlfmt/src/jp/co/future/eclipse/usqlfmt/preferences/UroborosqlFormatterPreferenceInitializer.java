@@ -22,10 +22,10 @@ public class UroborosqlFormatterPreferenceInitializer extends AbstractPreference
 	}
 
 	public enum CaseType {
-		lower,
-		upper,
-		capitalize,
-		noChange
+		LOWER,
+		UPPER,
+		CAPITALIZE,
+		NOCHANGE
 	}
 
 	// for backward compatibility start
@@ -55,8 +55,8 @@ public class UroborosqlFormatterPreferenceInitializer extends AbstractPreference
 		IPreferenceStore store = UroborosqlFormatterPlugin.getDefault().getPreferenceStore();
 		store.setDefault(USE_UPPERCASE, true);
 		store.setDefault(HAS_BACKWARD_COMPATIBILITY_DONE, false);
-		store.setDefault(CASE, CaseType.upper.name());
-		store.setDefault(RESERVED_CASE, CaseType.upper.name());
+		store.setDefault(CASE, CaseType.UPPER.name());
+		store.setDefault(RESERVED_CASE, CaseType.UPPER.name());
 		store.setDefault(RESERVED_WORDS, "");
 		store.setDefault(USE_BACKSLASH, false);
 		store.setDefault(COMMENT_SYNTAX_TYPE, CommentSyntaxType.Uroborosql.name());
