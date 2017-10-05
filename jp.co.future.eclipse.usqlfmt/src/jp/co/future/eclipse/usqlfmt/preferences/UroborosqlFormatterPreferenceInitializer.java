@@ -1,9 +1,9 @@
 package jp.co.future.eclipse.usqlfmt.preferences;
 
-import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
-
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
+
+import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 
 /**
  * initalize preferences.

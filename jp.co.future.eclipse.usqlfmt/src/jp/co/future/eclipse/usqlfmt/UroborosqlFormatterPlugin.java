@@ -74,8 +74,8 @@ public class UroborosqlFormatterPlugin extends AbstractUIPlugin {
 			String configHasBackwardCompatibilityDone) {
 		if (configHasBackwardCompatibilityDone.equals("false")) {
 			if (configUseUppercase.equals("false")) {
-				store.setValue(UroborosqlFormatterPreferenceInitializer.CASE, CaseType.noChange.name());
-				store.setValue(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE, CaseType.noChange.name());
+				store.setValue(UroborosqlFormatterPreferenceInitializer.CASE, CaseType.NOCHANGE.name());
+				store.setValue(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE, CaseType.NOCHANGE.name());
 			}
 			store.setValue(UroborosqlFormatterPreferenceInitializer.HAS_BACKWARD_COMPATIBILITY_DONE, "true");
 		}

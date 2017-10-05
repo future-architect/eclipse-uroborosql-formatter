@@ -3,12 +3,12 @@ package jp.co.future.eclipse.usqlfmt.python;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.jface.preference.IPreferenceStore;
+
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer;
 import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CaseType;
 import jp.co.future.eclipse.usqlfmt.preferences.UroborosqlFormatterPreferenceInitializer.CommentSyntaxType;
-
-import org.eclipse.jface.preference.IPreferenceStore;
 
 /**
  * Binding plugin settings to python.

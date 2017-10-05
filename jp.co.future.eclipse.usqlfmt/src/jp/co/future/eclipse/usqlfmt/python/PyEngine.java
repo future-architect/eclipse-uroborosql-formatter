@@ -21,9 +21,8 @@ import org.python.core.PySystemState;
 import org.python.jsr223.PyScriptEngine;
 import org.python.util.PythonInterpreter;
 
-import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterException;
-
+import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 
 /**
  * Adapt to python engine.
