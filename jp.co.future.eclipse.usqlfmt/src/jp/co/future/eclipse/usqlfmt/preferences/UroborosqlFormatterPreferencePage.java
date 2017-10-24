@@ -65,9 +65,9 @@ public class UroborosqlFormatterPreferencePage extends FieldEditorPreferencePage
 	}
 
 	/**
-	 * Enable or disable the reserved case option deprnds on the user input.
-	 * if the upser input is "NOCHANGE", the reserved word option is disable,
-	 * otherwise the option is enable.
+	 * Enable or disable the reserved word section deprnds on the user input.
+	 * if the user input is "NOCHANGE" in the reserved case section, the reserved word section is disabled,
+	 * otherwise the option is enabled.
 	 *
 	 * @param PropertyChangeEvent event
 	 */
