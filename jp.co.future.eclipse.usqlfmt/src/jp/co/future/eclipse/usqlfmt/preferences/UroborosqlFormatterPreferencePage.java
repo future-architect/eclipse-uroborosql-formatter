@@ -37,18 +37,18 @@ public class UroborosqlFormatterPreferencePage extends FieldEditorPreferencePage
 		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.CASE,
 				"Specify case", 1,
 				new String[][] {
-						new String[] { CaseType.UPPER.name(), CaseType.UPPER.name() },
-						new String[] { CaseType.LOWER.name(), CaseType.LOWER.name() },
-						new String[] { CaseType.CAPITALIZE.name(), CaseType.CAPITALIZE.name() },
-						new String[] { CaseType.NOCHANGE.name(), CaseType.NOCHANGE.name() }
+						new String[] { "UPPER", CaseType.UPPER.name() },
+						new String[] { "lower", CaseType.LOWER.name() },
+						new String[] { "Capitalize", CaseType.CAPITALIZE.name() },
+						new String[] { "nochange", CaseType.NOCHANGE.name() }
 				}, getFieldEditorParent()));
 		addField(new RadioGroupFieldEditor(UroborosqlFormatterPreferenceInitializer.RESERVED_CASE,
 				"Specify reserved words case", 1,
 				new String[][] {
-						new String[] { CaseType.UPPER.name(), CaseType.UPPER.name() },
-						new String[] { CaseType.LOWER.name(), CaseType.LOWER.name() },
-						new String[] { CaseType.CAPITALIZE.name(), CaseType.CAPITALIZE.name() },
-						new String[] { CaseType.NOCHANGE.name(), CaseType.NOCHANGE.name() }
+						new String[] { "UPPER", CaseType.UPPER.name() },
+						new String[] { "lower", CaseType.LOWER.name() },
+						new String[] { "Capitalize", CaseType.CAPITALIZE.name() },
+						new String[] { "nochange", CaseType.NOCHANGE.name() }
 				}, getFieldEditorParent()));
 
 		reservedWordsEditor = new StringFieldEditor(UroborosqlFormatterPreferenceInitializer.RESERVED_WORDS,
