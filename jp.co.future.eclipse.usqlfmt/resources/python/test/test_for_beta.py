@@ -84,7 +84,7 @@ SELECT * FROM tab2 ORDER BY c02 FETCH FIRST 50 PERCENT ROWS ONLY
 
 
 def format_sql(text):
-    formated = uroborosqlfmt.format_sql(text, LocalConfig())
+    formated = uroborosqlfmt.format_sql(text, LocalConfig().set_case('upper'))
 
     return formated
 
