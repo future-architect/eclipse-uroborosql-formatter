@@ -3,8 +3,10 @@ package jp.co.future.eclipse.usqlfmt.handlers;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
@@ -56,8 +58,10 @@ public class FormatHandler extends AbstractHandler {
 		final String sql = workSql;
 
 		// format async
-		Thread thread = new Thread("uroboroSQL Format Thread") {
-			public void run() {
+		Job job = new Job("uroboroSQL Format Thread") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+
 				final PyEngine engine = UroborosqlFormatterPlugin.getDefault().getPyEngine();
 				engine.put("sql", sql);
 
@@ -66,6 +70,7 @@ public class FormatHandler extends AbstractHandler {
 				binder.bind(engine);
 
 				window.getWorkbench().getDisplay().asyncExec(new Runnable() {
+
 					@Override
 					public void run() {
 						try {
@@ -90,10 +95,11 @@ public class FormatHandler extends AbstractHandler {
 						}
 					}
 				});
+				return Status.OK_STATUS;
 			}
 		};
-		thread.setDaemon(true);
-		thread.start();
+		job.setPriority(Job.SHORT);
+		job.schedule();
 
 		return null;
 	}

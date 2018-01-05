@@ -15,14 +15,12 @@ import org.eclipse.core.runtime.FileLocator;
 import org.python.core.PyBaseException;
 import org.python.core.PyException;
 import org.python.core.PyObject;
-import org.python.core.PyString;
 import org.python.core.PyStringMap;
-import org.python.core.PySystemState;
 import org.python.jsr223.PyScriptEngine;
 import org.python.util.PythonInterpreter;
 
-import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterException;
+import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin;
 
 /**
  * Adapt to python engine.
@@ -31,27 +29,29 @@ import jp.co.future.eclipse.usqlfmt.UroborosqlFormatterException;
  */
 public class PyEngine implements AutoCloseable {
 	private final ScriptEngine engine;// = null;
-	private final PythonInterpreter interp;
 
 	public PyEngine() {
 		String pythonPath = getPythonPath();
 		String enginePath = Paths.get(pythonPath).getParent().getParent().resolve("lib/jython-standalone-2.7.0.jar/Lib").toString();
 		Properties props = new Properties();
 		props.put("python.home","lib");
-		props.put("python.path", pythonPath);
 		props.put("python.console.encoding", "UTF-8");
 		props.put("python.security.respectJavaAccessibility", "false");
 		props.put("python.import.site","false");
 
 		PythonInterpreter.initialize(System.getProperties(), props, new String[0]);
-		interp = new PythonInterpreter(null, new PySystemState());
-		interp.getSystemState().path.append(new PyString(enginePath));
 		engine = new ScriptEngineManager().getEngineByName("python");
+
+		engine.put("enginePath", enginePath);
+		engine.put("pythonPath", pythonPath);
 		PyEngine.eval(engine,
-			"import uroborosqlfmt",
-			"from uroborosqlfmt import api",
-			"from uroborosqlfmt.config import LocalConfig",
-			"from uroborosqlfmt.commentsyntax import Doma2CommentSyntax");
+				"import sys",
+				"sys.path.append(enginePath)",
+				"sys.path.append(pythonPath)",
+				"import uroborosqlfmt",
+				"from uroborosqlfmt import api",
+				"from uroborosqlfmt.config import LocalConfig",
+				"from uroborosqlfmt.commentsyntax import Doma2CommentSyntax");
 	}
 
 	public <T> T eval(String script) {
@@ -97,7 +97,7 @@ public class PyEngine implements AutoCloseable {
 				return new IllegalStateException(scriptException);
 			} else {
 				return new IllegalStateException(
-					scriptException.getMessage() + "\nscript:" + String.join("\n", scripts), scriptException);
+						scriptException.getMessage() + "\nscript:" + String.join("\n", scripts), scriptException);
 			}
 		}
 
