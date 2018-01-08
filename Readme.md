@@ -1,6 +1,8 @@
 Eclipse uroboroSQL Formatter
 =============================
 
+[![Eclipse Marketplace](https://img.shields.io/eclipse-marketplace/dt/eclipse-uroborosql-formatter.svg)](https://marketplace.eclipse.org/content/eclipse-uroborosql-formatter)
+
 UroboroSQL Formatter is often used in enterprise systems, For formatting to a highly maintainable style even for very long SQL (1 K step or more) It is a plug-in of Eclipse.
 
 In particular, in countries where English is not their mother tongue, such as Japan, comments may be included in SELECT clauses. In that case, we will align the vertical position of the AS clause and the comment, pursuing the viewability which can be said as artistic anymore, This was developed to realize this automatically.
@@ -70,6 +72,12 @@ How to Use
 - With the file with the extension sql open, select "Format SQL" from the context menu of the editor.
 -	Use Ctrl + Shift + L on Windows, Cmd + Shift + L on OS X to format currently active document.</p>
 
+Preferences
+-----------
+
+- Select "uroboroSQL Formatter" from Eclipse's Preferences.
+<img src="./docs/preference.jpg" style="width:50%">
+
 License
 -------
 
@@ -77,4 +85,4 @@ License
 
 ---
 
-Copyright 2017 by Future Architect.
+Copyright 2018 by Future Architect.

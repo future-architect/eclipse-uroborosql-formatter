@@ -97,7 +97,7 @@ public class PyEngine implements AutoCloseable {
 				return new IllegalStateException(scriptException);
 			} else {
 				return new IllegalStateException(
-						scriptException.getMessage() + "\nscript:" + String.join("\n", scripts), scriptException);
+						scriptException.getMessage() + "\nscript:" + joinStrings("\n", scripts), scriptException);
 			}
 		}
 
@@ -136,5 +136,19 @@ public class PyEngine implements AutoCloseable {
 		} catch (URISyntaxException | IOException e) {
 			throw new IllegalStateException(e);
 		}
+	}
+
+	/*
+	 * Compatibility of String#join in Java 8
+	 */
+	private static String joinStrings(String sep, String[] strings) {
+		final StringBuilder buf = new StringBuilder();
+		for (int i = 0; i < strings.length; i++) {
+			buf.append(strings[i]);
+			if (i != strings.length - 1) {
+				buf.append(sep);
+			}
+		}
+		return buf.toString();
 	}
 }

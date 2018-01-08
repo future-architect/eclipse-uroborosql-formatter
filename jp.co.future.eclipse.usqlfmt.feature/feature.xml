@@ -2,7 +2,7 @@
 <feature
       id="jp.co.future.eclipse.usqlfmt.feature"
       label="Eclipse uroboroSQL Formatter"
-      version="0.1.1"
+      version="0.2.0"
       provider-name="Future Architect, Inc.">
 
    <description url="https://github.com/future-architect/eclipse-uroborosql-formatter">
@@ -24,13 +24,13 @@ The following options can be selected by the Preferences dialog.
    </description>
 
    <copyright url="https://github.com/future-architect/eclipse-uroborosql-formatter">
-      Copyright 2017 by Future Architect.
+      Copyright 2018 by Future Architect.
    </copyright>
 
    <license url="https://github.com/future-architect/eclipse-uroborosql-formatter/blob/master/LICENSE">
       BSD 2-Clause License
 
-Copyright (c) 2017, 
+Copyright (c) 2018, 
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

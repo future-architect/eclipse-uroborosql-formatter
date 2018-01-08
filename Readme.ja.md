@@ -1,6 +1,8 @@
 Eclipse uroboroSQL Formatter
 =============================
 
+[![Eclipse Marketplace](https://img.shields.io/eclipse-marketplace/dt/eclipse-uroborosql-formatter.svg)](https://marketplace.eclipse.org/content/eclipse-uroborosql-formatter)
+
 uroboroSQL Formatterは、エンタープライズシステムで用いられることの多い、  
 非常に長いSQL(1K step以上)でも見やすく保守性の高いスタイルへフォーマットするための  
 Eclipseのプラグインです。
@@ -72,6 +74,13 @@ How to Use
 - 拡張子sqlのファイルを開いた状態で、エディタのコンテキストメニューより「Format SQL」を選択
 -	Ctrl + Shift + L on Windows, Cmd + Shift + L on OS X
 
+Preferences
+-----------
+
+- Eclipseの環境設定から「uroboroSQL Formatter」を選択
+
+<img src="./docs/preference.jpg" style="width:50%">
+
 License
 -------
 
@@ -79,4 +88,4 @@ License
 
 ---
 
-Copyright 2017 by Future Architect.
+Copyright 2018 by Future Architect.

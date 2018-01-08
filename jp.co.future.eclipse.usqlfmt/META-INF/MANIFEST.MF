@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse uroboroSQL Formatter
 Bundle-SymbolicName: jp.co.future.eclipse.usqlfmt;singleton:=true
-Bundle-Version: 0.1.1
+Bundle-Version: 0.2.0
 Bundle-Activator: jp.co.future.eclipse.usqlfmt.UroborosqlFormatterPlugin
 Bundle-Vendor: Future Architect, Inc.
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.jface.text
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: lib/jython-standalone-2.7.0.jar,
  .,
